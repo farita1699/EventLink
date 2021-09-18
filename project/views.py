@@ -3,6 +3,9 @@ from project.models import Events
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 
+import json
+#from . import requests
+
 # Create your views here.
 def placeholder(request):
 
@@ -28,3 +31,6 @@ def get_name(request):
         form = CustomUserCreationForm()
 
     return render(request, 'project/name.html', {'form': form})
+
+
+

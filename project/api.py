@@ -1,8 +1,10 @@
-from project.serializer import EventsSerializer
-from project.models import Events
 from django.contrib.auth.models import User
-from rest_framework import viewsets, permissions
-from .serializers import UserSerializer
+from project.models import Cartegory, Events
+from rest_framework import viewsets, permissions, generics
+from .serializer import UserSerializer, CartegorySerializer, EventSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 
 
 class EventViewSet(viewsets.ModelViewSet):
@@ -10,7 +12,7 @@ class EventViewSet(viewsets.ModelViewSet):
     permission_classes = [
         permissions.AllowAny,
     ]
-    serializer_class = EventsSerializer
+    serializer_class = EventSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -19,3 +21,13 @@ class UserViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = UserSerializer
+
+class CartegoryViewSet(viewsets.ModelViewSet):
+    queryset = Cartegory.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = CartegorySerializer
+
+
+
