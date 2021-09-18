@@ -3,7 +3,7 @@ from project.models import Events, Cartegory
 from django.contrib.auth.models import User
 
 # Lead Serializer
-class EventsSerializer(serializers.ModelSerializer):
+class EventSerializer(serializers.ModelSerializer):
   class Meta:
     model = Events 
     fields = '__all__'
