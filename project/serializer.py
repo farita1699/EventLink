@@ -6,7 +6,7 @@ from django.contrib.auth.models import Group, User
 class EventSerializer(serializers.ModelSerializer):
   class Meta:
     model = Events 
-    fields = ['title','description','cartegory','location']
+    fields = ['title','description','cartegory','location','isVirtual']
 
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
