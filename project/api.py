@@ -1,7 +1,7 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import Group, User
 from project.models import Cartegory, Events
 from rest_framework import viewsets, permissions, status
-from .serializer import UserSerializer, CartegorySerializer, EventSerializer
+from .serializer import UserSerializer, CartegorySerializer, EventSerializer, GroupSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -30,6 +30,13 @@ class CartegoryViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = CartegorySerializer
+
+class GroupViewSet(viewsets.ModelViewSet):
+    queryset = Group.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = GroupSerializer
 
 
 
